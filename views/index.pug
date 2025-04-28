@@ -1,0 +1,50 @@
+doctype html 
+html
+head
+    title Final Project - Cameron Luong 
+    link(rel="stylesheet", href="/stylesheet.css")
+    //script(src="/script.js")
+
+body 
+    header
+        h1 pp me 
+
+    if user 
+        div#user-info(style="position: fixed; top: 40px; right: 20px;")
+        p Current User: #{user}
+        form(action='/logout' method = 'POST')
+            button(type='submit') Log Out
+    else 
+        p(style=style="position: fixed; top: 40px; right: 20px;") Please Log In
+
+    if !user
+        section#intro-creation 
+            h2 To begin, let's create an account.
+
+        #account-submission
+            form#accountSubmissionForm
+                .form-group 
+                    label(for="newUser") Username: 
+                    input#createUsername(type="text" name="newUser" placeholder="Enter Username")
+
+                .form-group
+                    label(for="newPass") Password:
+                    input#createPassword(type="text" name="newPass" placeholder="Enter Password")
+
+                div 
+                    button#submitAccount(type="submit") Submit
+
+        #account-login
+            h2 Already have an account? Let's login.
+            form#accountLoginForm
+                .form-group
+                    label(for="user") Username: 
+                    input#loginUsername(type="text" name="username" placeholder="Enter Username")
+
+                .form-group 
+                    label(for="pass") Password:
+                    input#loginPassword(type="text" name="password" placeholder="Enter Password")
+
+                div 
+                    button#submitLogin(type="submit") Submit
+
