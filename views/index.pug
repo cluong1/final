@@ -3,19 +3,14 @@ html
 head
     title Final Project - Cameron Luong 
     link(rel="stylesheet", href="/stylesheet.css")
-    //script(src="/script.js")
+    script(src="/script.js")
 
 body 
     header
-        h1 pp me 
+        h1 Cam's Chat 
 
-    if user 
-        div#user-info(style="position: fixed; top: 40px; right: 20px;")
-        p Current User: #{user}
-        form(action='/logout' method = 'POST')
-            button(type='submit') Log Out
-    else 
-        p(style=style="position: fixed; top: 40px; right: 20px;") Please Log In
+
+
 
     if !user
         section#intro-creation 
@@ -24,12 +19,12 @@ body
         #account-submission
             form#accountSubmissionForm
                 .form-group 
-                    label(for="newUser") Username: 
-                    input#createUsername(type="text" name="newUser" placeholder="Enter Username")
+                    label(for="username") Username: 
+                    input#createUsername(type="text" name="username" placeholder="Enter Username" autocomplete = "off") 
 
                 .form-group
-                    label(for="newPass") Password:
-                    input#createPassword(type="text" name="newPass" placeholder="Enter Password")
+                    label(for="password") Password:
+                    input#createPassword(type="text" name="password" placeholder="Enter Password" autocomplete = "off")
 
                 div 
                     button#submitAccount(type="submit") Submit
@@ -39,12 +34,49 @@ body
             form#accountLoginForm
                 .form-group
                     label(for="user") Username: 
-                    input#loginUsername(type="text" name="username" placeholder="Enter Username")
+                    input#loginUsername(type="text" name="username" placeholder="Enter Username" autocomplete = "off")
 
                 .form-group 
                     label(for="pass") Password:
-                    input#loginPassword(type="text" name="password" placeholder="Enter Password")
+                    input#loginPassword(type="text" name="password" placeholder="Enter Password" autocomplete = "off")
 
                 div 
                     button#submitLogin(type="submit") Submit
+    if user 
+        div#user-info(style="position: fixed; top: 40px; right: 20px;")
+        p Current User: #{user}
+        form(action='/logout' method = 'POST')
+            button(type='submit') Log Out
 
+        section#friends 
+            h2 Friends List
+            select#friendsDropdown
+                option(disable selected) -- Select a friend --
+            button#refreshFriends Refresh Friends
+        
+        section#friend-requests 
+            h2 Friend Requests 
+            button#refreshRequests Refresh Requests
+            ul#pendingRequests
+
+
+
+        section#send-request 
+            h2 Send a friend request 
+            form#sendFriendForm
+                input#friendUsername(type="text" placeholder="Enter username" autocomplete = "off")
+                button#sendFriendRequest(type="submit") Send Request 
+
+
+        section#chat
+            h2 Chat 
+            #chatWindow 
+
+            form#sendMessageForm
+                input#chatMessage(type="text" placeholder="Type a message" autocomplete = "off")
+                button#sendChatMessage(type="submit") Send
+
+
+
+    else 
+        p(style="position: fixed; top: 40px; right: 20px;") Please Log In
