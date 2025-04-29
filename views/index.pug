@@ -43,10 +43,13 @@ body
                 div 
                     button#submitLogin(type="submit") Submit
     if user 
+        input(type='hidden' id='currentUsername' value=user)
         div#user-info(style="position: fixed; top: 40px; right: 20px;")
             p Current User: #{user}
             form(action='/logout' method = 'POST')
                     button(type='submit') Log Out
+            if userPic 
+                img(src=userPic alt="Profile Picture" style = "width: 50px; height: 50px; border-radius: 50%")
 
         section#friends 
             h2 Friends List
