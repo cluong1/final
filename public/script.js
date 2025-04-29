@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         loadFriends();
         loadPendingRequests();
-        chatWindow.addEventListener('change',loadChatHistory);
+        dropdown.addEventListener('change',loadChatHistory);
     }
 
     if(refreshFriendsButton){
