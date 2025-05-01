@@ -125,16 +125,14 @@ button:hover {
     border-radius: 12px;
     max-width: 80%;
     word-wrap: break-word;
-    align-self: flex-start; /* Default: others' messages left */
+    align-self: flex-start;
 }
 
 .message.self {
     background-color: #d1ffd6;
-    align-self: flex-end; /* Your messages to the right */
+    align-self: flex-end; 
 }
 
-
-/* Message input and button */
 #sendMessageForm {
     display: flex;
     gap: 10px;
